@@ -37,11 +37,11 @@ var dela = {
             var children = $(this).children();
             if(children.length==7){
               lunchmenu.push({
-                "floor":"B1",
-                "name":children[0].children[0].data,
-                "enname":children[2].children[0].data,
-                "kcal":children[4].children[0].data,
-                "won":children[6].children[0].data
+                "f":"B1",
+                "n":children[0].children[0].data,
+                "en":children[2].children[0].data,
+                "c":children[4].children[0].data,
+                "w":children[6].children[0].data
               });
             }
           }
@@ -61,10 +61,11 @@ var dela = {
             var children = $(this).children();
             if(children.length==7){
               lunchmenu.push({
-                "floor":"B2",
-                "name":children[0].children[0].data,
-                "kcal":children[4].children[0].data,
-                "won":children[6].children[0].data
+                "f":"B2",
+                "n":children[0].children[0].data,
+                "en":children[2].children[0].data,
+                "cal":children[4].children[0].data,
+                "w":children[6].children[0].data
               });
             }
           }
