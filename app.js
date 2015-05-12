@@ -9,12 +9,22 @@ var path = require('path');
 var cheerio = require('cheerio');
 
 var store_name = function (id){
-       if(id==='DEPT002')
-        return 'Korean 2';
-  else if(id==='DEPT005')
-        return 'Western';
-  else
-        return '';
+       if(id==='DEPT001')                                                                                                                                                                                                      
+         return 'Korean 1';                                                                                                                                                                                                     
+  else if(id==='DEPT002')                                                                                                                                                                                                      
+         return 'Korean 2';                                                                                                                                                                                                      
+  else if(id==='DEPT003')                                                                                                                                                                                                      
+         return '탕맛기픈';                                                                                                                                                                                                      
+  else if(id==='DEPT004')                                                                                                                                                                                                      
+         return '가츠엔';                                                                                                                                                                                                      
+  else if(id==='DEPT005')                                                                                                                                                                                                      
+         return 'Western';                                                                                                                                                                                                      
+  else if(id==='DEPT006')                                                                                                                                                                                                      
+         return 'Snapsnack';                                                                                                                                                                                                      
+  else if(id==='DEPT007')                                                                                                                                                                                                      
+         return 'TAKE OUT';                                                                                                                                                                                                      
+  else                                                                                                                                                                                                                         
+         return '';                                                                                                                                                                                                             
 }
 var dela = {
   getlunchMenu : function (cb){
