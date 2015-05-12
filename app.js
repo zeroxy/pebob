@@ -8,6 +8,14 @@ var http = require('http');
 var path = require('path');
 var cheerio = require('cheerio');
 
+var store_name = function (id){
+       if(id==='DEPT002')
+        return 'Korean 2';
+  else if(id==='DEPT005')
+        return 'Western';
+  else
+        return '';
+}
 var dela = {
   getlunchMenu : function (cb){
     var options1 = {
@@ -37,10 +45,10 @@ var dela = {
             var children = $(this).children();
             if(children.length==7){
               lunchmenu.push({
-                "f":"B1",
+                "f":"B1 "+store_name(children[0].parent.parent.parent.parent.attribs.class.substring(0,7)),
                 "n":children[0].children[0].data,
                 "en":children[2].children[0].data,
-                "c":children[4].children[0].data,
+                "c":children[4].children[0].data.substring(0,children[4].children[0].data.length-5),
                 "w":children[6].children[0].data
               });
             }
@@ -61,10 +69,10 @@ var dela = {
             var children = $(this).children();
             if(children.length==7){
               lunchmenu.push({
-                "f":"B2",
+                "f":"B2 "+store_name(children[0].parent.parent.parent.parent.attribs.class.substring(0,7)),
                 "n":children[0].children[0].data,
                 "en":children[2].children[0].data,
-                "cal":children[4].children[0].data,
+                "c":children[4].children[0].data.substring(0,children[4].children[0].data.length-5),
                 "w":children[6].children[0].data
               });
             }
