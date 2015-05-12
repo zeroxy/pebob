@@ -1,0 +1,13 @@
+{
+  "name": "pebble-api-server",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "cheerio": "^0.18.0",
+    "express": "3.9.0",
+    "jade": "*"
+  }
+}
