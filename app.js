@@ -9,22 +9,38 @@ var path = require('path');
 var cheerio = require('cheerio');
 
 var store_name = function (id){
-       if(id==='DEPT001')                                                                                                                                                                                                      
-         return 'Korean 1';                                                                                                                                                                                                     
-  else if(id==='DEPT002')                                                                                                                                                                                                      
-         return 'Korean 2';                                                                                                                                                                                                      
-  else if(id==='DEPT003')                                                                                                                                                                                                      
-         return '탕맛기픈';                                                                                                                                                                                                      
-  else if(id==='DEPT004')                                                                                                                                                                                                      
-         return '가츠엔';                                                                                                                                                                                                      
-  else if(id==='DEPT005')                                                                                                                                                                                                      
-         return 'Western';                                                                                                                                                                                                      
-  else if(id==='DEPT006')                                                                                                                                                                                                      
-         return 'Snapsnack';                                                                                                                                                                                                      
-  else if(id==='DEPT007')                                                                                                                                                                                                      
-         return 'TAKE OUT';                                                                                                                                                                                                      
-  else                                                                                                                                                                                                                         
-         return '';                                                                                                                                                                                                             
+       if(id==='DEPT001')
+         return 'Korean 1';
+  else if(id==='DEPT002')
+         return 'Korean 2';
+  else if(id==='DEPT003')
+         return '탕맛기픈';
+  else if(id==='DEPT004')
+         return '가츠엔';
+  else if(id==='DEPT005')
+         return 'Western';
+  else if(id==='DEPT006')
+         return 'Snapsnack';
+  else if(id==='DEPT007')
+         return 'TAKE OUT';
+  else if(id==='DSDS011')
+         return 'Korean 1';
+  else if(id==='DSDS012')
+         return 'Korean 2';
+  else if(id==='DSDS013')
+         return 'Napolipoli';
+  else if(id==='DSDS014')
+         return 'asian picks';
+  else if(id==='DSDS015')
+         return '고슬고슬 비빈';
+  else if(id==='DSDS016')
+         return 'Chef`s Counter';
+  else if(id==='DSDS017')
+         return 'Xing Fu';
+  else if(id==='DSDS018')
+         return '우리미각면';
+  else
+         return "";                                                                                                                                                                                                             
 }
 var dela = {
   getlunchMenu : function (cb){
