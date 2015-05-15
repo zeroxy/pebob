@@ -72,6 +72,7 @@ var dela = {
             if(children.length==7){
               lunchmenu.push({
                 "f":"B1 "+store_name(children[0].parent.parent.parent.parent.attribs.class.substring(0,7)),
+                "i":"http://www.sdsfoodmenu.co.kr:9106"+children[0].parent.next.next.children[3].attribs.src,
                 "n":children[0].children[0].data,
                 "en":children[2].children[0].data,
                 "c":children[4].children[0].data.substring(0,children[4].children[0].data.length-5),
@@ -96,6 +97,7 @@ var dela = {
             if(children.length==7){
               lunchmenu.push({
                 "f":"B2 "+store_name(children[0].parent.parent.parent.parent.attribs.class.substring(0,7)),
+                "i":"http://www.sdsfoodmenu.co.kr:9106"+children[0].parent.next.next.children[3].attribs.src,
                 "n":children[0].children[0].data,
                 "en":children[2].children[0].data,
                 "c":children[4].children[0].data.substring(0,children[4].children[0].data.length-5),
