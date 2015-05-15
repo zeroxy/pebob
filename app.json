@@ -1,0 +1,6 @@
+{
+  "name": "pebob server",
+  "description": "Express 3.9 를 이용한 SDS 잠실 사옥 사내식당 메뉴 조회 서버. json 으로 반환",
+  "repository": "https://github.com/zeroxy/pebob",
+  "keywords": ["node", "express", "SDS", "delacourt", "jamsil"]
+}
