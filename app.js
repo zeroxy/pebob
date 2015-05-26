@@ -134,7 +134,10 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(function(err,req,res,next){
+  console.log(err.stack);
+  res.status(500).send('Something broke!');
+});
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
