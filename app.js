@@ -146,6 +146,9 @@ if ('development' == app.get('env')) {
 app.get('/', function(req, res){
   dela.getlunchMenu(function(data){ res.send(data);});
 });
+app.get('/sort', function(req, res){
+  res.sendfile(path.join(__dirname, 'view.html'));
+});
 var server = http.createServer(app)
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'), app.get('ip'));
