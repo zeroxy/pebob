@@ -66,21 +66,21 @@ var dela = {
       });
       res.on('end', function() {
         $=cheerio.load(html1);
-        $('td').each(function(i,td){
-          if(i!==0){
-            var children = $(this).children();
-            if(children.length==7){
-              lunchmenu.push({
-                "f":"B1 "+store_name(children[0].parent.parent.parent.parent.attribs.class.substring(0,7)),
-                "i":"http://www.sdsfoodmenu.co.kr:9106"+children[0].parent.next.next.children[3].attribs.src,
-                "n":children[0].children[0].data,
-                "en":children[2].children[0].data,
-                "c":children[4].children[0].data.substring(0,children[4].children[0].data.length-5),
-                "w":children[6].children[0].data
-              });
-            }
+        var menus = $('td span');
+        var menuimgs = $('td img');
+        if(menuimgs.length >0){
+          menus.splice(0, 1);
+          for (var i = 0 ; i < menuimgs.length; i++){
+            lunchmenu.push({
+              "f"  : "B1 "+store_name( menus[i*4].parent.parent.parent.parent.attribs.class.substring(0,7) ),
+              "n"  : menus[i*4  ].children[0].data,
+              "en" : menus[i*4+1].children[0].data,
+              "c"  : menus[i*4+2].children[0].data.replace(' kcal',''),
+              "w"  : menus[i*4+3].children[0].data,
+              "i"  : "http://www.sdsfoodmenu.co.kr:9106"+ menuimgs[i].attribs.src
+            });
           }
-        });
+        }
         req2.end();
       });
     });
@@ -91,21 +91,21 @@ var dela = {
       });
       res.on('end', function() {
         $=cheerio.load(html2);
-        $('td').each(function(i,td){
-          if(i!==0){
-            var children = $(this).children();
-            if(children.length==7){
-              lunchmenu.push({
-                "f":"B2 "+store_name(children[0].parent.parent.parent.parent.attribs.class.substring(0,7)),
-                "i":"http://www.sdsfoodmenu.co.kr:9106"+children[0].parent.next.next.children[3].attribs.src,
-                "n":children[0].children[0].data,
-                "en":children[2].children[0].data,
-                "c":children[4].children[0].data.substring(0,children[4].children[0].data.length-5),
-                "w":children[6].children[0].data
-              });
-            }
+        var menus = $('td span');
+        var menuimgs = $('td img');
+        if(menuimgs.length >0){
+          menus.splice(0, 1);
+          for (var i = 0 ; i < menuimgs.length; i++){
+            lunchmenu.push({
+              "f"  : "B2 "+store_name( menus[i*4].parent.parent.parent.parent.attribs.class.substring(0,7) ),
+              "n"  : menus[i*4  ].children[0].data,
+              "en" : menus[i*4+1].children[0].data,
+              "c"  : menus[i*4+2].children[0].data.replace(' kcal',''),
+              "w"  : menus[i*4+3].children[0].data,
+              "i"  : "http://www.sdsfoodmenu.co.kr:9106"+ menuimgs[i].attribs.src
+            });
           }
-        });
+        }
         cb(lunchmenu);
       });
     });
