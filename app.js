@@ -75,7 +75,7 @@ var dela = {
               "f"  : "B1 "+store_name( menus[i*4].parent.parent.parent.parent.attribs.class.substring(0,7) ),
               "n"  : menus[i*4  ].children[0].data,
               "en" : menus[i*4+1].children[0].data,
-              "c"  : menus[i*4+2].children[0].data.replace(' kcal',''),
+              "c"  : Number(menus[i*4+2].children[0].data.replace(' kcal','').replace(',','')),
               "w"  : menus[i*4+3].children[0].data,
               "i"  : "http://www.sdsfoodmenu.co.kr:9106"+ menuimgs[i].attribs.src
             });
@@ -100,7 +100,7 @@ var dela = {
               "f"  : "B2 "+store_name( menus[i*4].parent.parent.parent.parent.attribs.class.substring(0,7) ),
               "n"  : menus[i*4  ].children[0].data,
               "en" : menus[i*4+1].children[0].data,
-              "c"  : menus[i*4+2].children[0].data.replace(' kcal',''),
+              "c"  : Number(menus[i*4+2].children[0].data.replace(' kcal','').replace(',','')),
               "w"  : menus[i*4+3].children[0].data,
               "i"  : "http://www.sdsfoodmenu.co.kr:9106"+ menuimgs[i].attribs.src
             });
