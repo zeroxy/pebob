@@ -152,7 +152,7 @@ app.get('/sort', function(req, res){
   res.sendfile(path.join(__dirname, 'view.html'));
 });
 var job = new CronJob({
-  cronTime: '*/20 * * * * *',
+  cronTime: '00 */20 5-18 * * 1-6',
   onTick: function() {
     http.request({host: "pebob.herokuapp.com",path: "/sort"}, function(res) {
       res.setEncoding('utf8');
