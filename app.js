@@ -144,9 +144,9 @@ app.use(function(err,req,res,next){
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
+var diningmenuJson;
 app.get('/', function(req, res){
-  dela.getlunchMenu(function(data){ res.send(data);});
+  res.send(diningmenuJson);
 });
 app.get('/sort', function(req, res){
   res.sendfile(path.join(__dirname, 'view.html'));
@@ -163,9 +163,19 @@ var job = new CronJob({
   start: false,
   timeZone: 'Asia/Seoul'
 });
+var job2 = new CronJob({
+  cronTime: '00 */10 5-19 * * 1-6',
+  onTick: function() {
+    dela.getlunchMenu(function(data){ diningmenuJson = data;});
+  },
+  start: false,
+  timeZone: 'Asia/Seoul'
+});
 
 var server = http.createServer(app)
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'), app.get('ip'));
+  dela.getlunchMenu (function(data){ diningmenuJson = data;});
   job.start();
+  job2.start();
 });
