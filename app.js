@@ -7,6 +7,8 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var cheerio = require('cheerio');
+var CronJob = require('cron').CronJob;
+
 
 var store_name = function (id){
        if(id==='DEPT001')
@@ -149,7 +151,21 @@ app.get('/', function(req, res){
 app.get('/sort', function(req, res){
   res.sendfile(path.join(__dirname, 'view.html'));
 });
+var job = new CronJob({
+  cronTime: '*/20 * * * * *',
+  onTick: function() {
+    http.request({host: "pebob.herokuapp.com",path: "/sort"}, function(res) {
+      res.setEncoding('utf8');
+      res.on('data', function(chunk) {});
+      res.on('end', function(){});
+    }).end();
+  },
+  start: false,
+  timeZone: 'Asia/Seoul'
+});
+
 var server = http.createServer(app)
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'), app.get('ip'));
+  job.start();
 });
